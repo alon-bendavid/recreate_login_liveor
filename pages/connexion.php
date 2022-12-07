@@ -4,13 +4,32 @@ include('header.php');
 
 include('../includes/connect.php');
 
+
 if (mysqli_connect_errno()) {
     die('conecnection error' . mysqli_connect_error());
 }
+if (isset($_POST['loginSub'])) {
+    echo "it works";
+    $username = $_POST['loginUsr'];
+    $password = $_POST['loginPwd'];
+
+    $sql = "SELECT * FROM utilisateurs WHERE login='$username'";
+    $query = mysqli_query($con, $sql);
+    $printUser = mysqli_fetch_array($query);
+
+    $printUser = mysqli_fetch_array($query);
+    // var_dump($query);
+    // print_r($printUser[2]);
+    var_dump($printUser);
+}
 //fetch information
-$sql = "SELECT * FROM utilisateurs";
-$query = $con->query($sql);
-$users = $query->fetch_all();
+// if ($printUser == true) {
+//     $username = $_POST['loginUsr'];
+//     $password = $_POST['loginPwd'];
+// }
+
+// $query = $con->query($sql);
+// $users = $query->fetch_all();
 
 // if (isset($_POST['loginSub'])) {
 //     foreach ($users as $user) {
@@ -26,7 +45,7 @@ $users = $query->fetch_all();
 //         }
 //     }
 // }
-var_dump($_POST['loginUsr']);
+// var_dump($_POST['loginUsr']);
 ?>
 
 <body>

@@ -16,7 +16,7 @@ if (isset($_POST['submit'])) {
     // var_dump($query);
     // print_r($printUser[2]);
     var_dump($printUser);
-
+    //create the user and insert into databasse
     if ($printUser == null) {
         if ($password == $repass) {
 
@@ -30,20 +30,8 @@ if (isset($_POST['submit'])) {
     } else {
         echo "Username already taken, please choose another username";
     }
-
-
-    // if (empty($query)) {
-    //     var_dump('on passe par ici');
-    // }
-    // $users = $query->fetch();
-
 }
 
-// if (isset($_POST['submit'])) {
-//     $username = $_POST['username'];
-//     $password = $_POST['password'];
-//     $rePass = $_POST['rePass'];
-// }
 
 
 
