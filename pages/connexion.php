@@ -9,18 +9,26 @@ if (mysqli_connect_errno()) {
     die('conecnection error' . mysqli_connect_error());
 }
 if (isset($_POST['loginSub'])) {
-    echo "it works";
+    // echo "it works";
     $username = $_POST['loginUsr'];
     $password = $_POST['loginPwd'];
 
     $sql = "SELECT * FROM utilisateurs WHERE login='$username'";
     $query = mysqli_query($con, $sql);
     $printUser = mysqli_fetch_array($query);
-
-    $printUser = mysqli_fetch_array($query);
+    if (!$printUser == null) {
+        if ($password == $printUser[2]) {
+            echo "Welcome $printUser[1] You are now logged in";
+        } else {
+            echo "Password is worng, please try again";
+        }
+    } else {
+        echo "No user found with that name";
+    }
+    // $printUser = mysqli_fetch_array($query);
     // var_dump($query);
     // print_r($printUser[2]);
-    var_dump($printUser);
+    // var_dump($printUser);
 }
 //fetch information
 // if ($printUser == true) {
