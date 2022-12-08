@@ -20,6 +20,7 @@ if (isset($_POST['loginSub'])) {
         if ($password == $printUser[2]) {
             echo "Welcome $printUser[1] You are now logged in";
             $_SESSION['user'] = $printUser;
+            header('Location: ' . 'index.php');
         } else {
             echo "Password is worng, please try again";
         }
