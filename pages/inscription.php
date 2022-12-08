@@ -24,6 +24,7 @@ if (isset($_POST['submit'])) {
             //insert information into databse
             $sql = "INSERT INTO `utilisateurs`(`id`, `login`, `password`) VALUES (null,'$username','$password')";
             $query = mysqli_query($con, $sql);
+            header('Location: ' . 'connexion.php');
         } elseif ($password != $repass) {
             echo "Password doesnt match, please retype password";
         }
